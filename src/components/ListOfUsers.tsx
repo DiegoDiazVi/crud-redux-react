@@ -3,7 +3,6 @@ import {
   Table,
   TableBody,
   TableCell,
-  TableFoot,
   TableHead,
   TableHeaderCell,
   TableRow,
@@ -40,34 +39,38 @@ export function ListOfUsers(): JSX.Element {
 
   return (
     <Card>
-      <TableFoot className="mt-8">
-        <Table>
-          <TableHead>
-            <TableRow>
-              <TableHeaderCell>ID</TableHeaderCell>
-              <TableHeaderCell>Name</TableHeaderCell>
-              <TableHeaderCell>Email</TableHeaderCell>
-              <TableHeaderCell>GitHub</TableHeaderCell>
+      <Table>
+        <TableHead>
+          <TableRow>
+            <TableHeaderCell>ID</TableHeaderCell>
+            <TableHeaderCell>Nombre</TableHeaderCell>
+            <TableHeaderCell>Email</TableHeaderCell>
+            <TableHeaderCell>Acciones</TableHeaderCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {users.map((item) => (
+            <TableRow key={item.id}>
+              <TableCell className="">{item.id}</TableCell>
+              <TableCell style={{ display: "flex" }}>
+                <img
+                  style={{
+                    width: "32px",
+                    height: "32px",
+                    borderRadius: "50%",
+                    marginRight: "8px",
+                  }}
+                  src={`https://unavatar.io/github/${item.github}`}
+                  alt="Avatar"
+                />
+                {item.name}
+              </TableCell>
+              <TableCell>{item.email}</TableCell>
+              <TableCell>Acciones</TableCell>
             </TableRow>
-          </TableHead>
-          <TableBody>
-            {users.map((item) => (
-              <TableRow key={item.id}>
-                <TableCell className="">{item.id}</TableCell>
-                <TableCell className="">
-                  <img
-                    src={`https://unavatar.io/github/${item.github}`}
-                    alt="Avatar"
-                  />
-                  {item.name}
-                </TableCell>
-                <TableCell>{item.email}</TableCell>
-                <TableCell>{item.github}</TableCell>
-              </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </TableFoot>
+          ))}
+        </TableBody>
+      </Table>
     </Card>
   );
 }
