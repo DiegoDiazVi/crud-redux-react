@@ -1,4 +1,5 @@
 import {
+  Badge,
   Card,
   Table,
   TableBody,
@@ -6,6 +7,7 @@ import {
   TableHead,
   TableHeaderCell,
   TableRow,
+  Title,
 } from "@tremor/react";
 import type { User } from "../types/types";
 
@@ -39,6 +41,10 @@ export function ListOfUsers(): JSX.Element {
 
   return (
     <Card>
+      <Title>
+        Lista de usuarios
+        <Badge style={{ marginLeft: "8px" }}>{users.length}</Badge>
+      </Title>
       <Table>
         <TableHead>
           <TableRow>
