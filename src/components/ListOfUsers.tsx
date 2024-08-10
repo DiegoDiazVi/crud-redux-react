@@ -9,36 +9,8 @@ import {
   TableRow,
   Title,
 } from "@tremor/react";
-import type { User } from "../types/types";
 
 export function ListOfUsers(): JSX.Element {
-  const users: User[] = [
-    {
-      id: "1",
-      name: "John Doe",
-      email: "dadad@dada.com",
-      github: "midudev",
-    },
-    {
-      id: "2",
-      name: "John Doe",
-      email: "dadad@dada.com",
-      github: "react",
-    },
-    {
-      id: "3",
-      name: "John Doe",
-      email: "dadad@dada.com",
-      github: "goncy",
-    },
-    {
-      id: "4",
-      name: "John Doe",
-      email: "dadad@dada.com",
-      github: "tailwindcss",
-    },
-  ];
-
   return (
     <Card>
       <Title>
