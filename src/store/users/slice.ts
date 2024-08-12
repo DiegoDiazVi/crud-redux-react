@@ -1,5 +1,5 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
-import type { User, UserId } from "../../types/types";
+import type { CleanUser, User, UserId } from "../../types/types";
 
 const DEFAULT_STATE = [
   {
@@ -46,8 +46,12 @@ export const userSlice = createSlice({
     deleteUserByID: (state, action: PayloadAction<UserId>) => {
       return state.filter((user) => user.id !== action.payload);
     },
+    addUser: (state, action: PayloadAction<CleanUser>) => {
+      const id = crypto.randomUUID();
+      return [...state, { id, ...action.payload }];
+    },
   },
 });
 
 export default userSlice.reducer;
-export const { deleteUserByID } = userSlice.actions;
+export const { deleteUserByID, addUser } = userSlice.actions;
