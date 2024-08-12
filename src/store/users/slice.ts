@@ -3,25 +3,25 @@ import type { CleanUser, User, UserId } from "../../types/types";
 
 const DEFAULT_STATE = [
   {
-    id: "1",
+    id: crypto.randomUUID(),
     name: "John Doe",
     email: "dadad@dada.com",
     github: "midudev",
   },
   {
-    id: "2",
+    id: crypto.randomUUID(),
     name: "John Doe",
     email: "dadad@dada.com",
     github: "react",
   },
   {
-    id: "3",
+    id: crypto.randomUUID(),
     name: "John Doe",
     email: "dadad@dada.com",
     github: "goncy",
   },
   {
-    id: "4",
+    id: crypto.randomUUID(),
     name: "John Doe",
     email: "dadad@dada.com",
     github: "tailwindcss",
