@@ -28,6 +28,11 @@ const DEFAULT_STATE = [
   },
 ];
 
+/**
+ * The initial state of the users slice.
+ *
+ * @type {User[]}
+ */
 const initialState: User[] = (() => {
   const persistedState = localStorage.getItem("redux_state");
   if (persistedState) return JSON.parse(persistedState).user;
