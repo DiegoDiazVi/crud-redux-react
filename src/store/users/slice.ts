@@ -1,7 +1,7 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
 import type { User, UserId } from "../../types/types";
 
-const initialState: User[] = [
+const DEFAULT_STATE = [
   {
     id: "1",
     name: "John Doe",
@@ -27,6 +27,12 @@ const initialState: User[] = [
     github: "tailwindcss",
   },
 ];
+
+const initialState: User[] = (() => {
+  const persistedState = localStorage.getItem("redux_state");
+  if (persistedState) return JSON.parse(persistedState).user;
+  return DEFAULT_STATE;
+})();
 
 export const userSlice = createSlice({
   name: "users",
